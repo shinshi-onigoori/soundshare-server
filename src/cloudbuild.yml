@@ -1,0 +1,12 @@
+steps:
+  # Install dependencies
+  # - name: python
+  #   entrypoint: pip
+  #   args: ["install", "-r", "requirements.txt", "--user"]
+  # - name: gcr.io/cloud-builders/gcloud
+  #   args: ["app", "deploy", "app.yaml","--project=outup-357210", "--quiet"]
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'bash'
+    args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
+    timeout: 1600s
+timeout: 1600s
